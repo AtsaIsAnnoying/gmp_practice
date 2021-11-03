@@ -1,3 +1,5 @@
+//this is only for practice, it isn't a practical code, one main change could be optimzing the prime generation method.
+//we take the size of the RSA key and the exponent as input and output the keys.
 #include<stdio.h>
 #include<gmp.h>
 #include<stdlib.h>
