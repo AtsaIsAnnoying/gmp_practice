@@ -56,7 +56,7 @@ gmp_printf("d=%Zx\n",d);
 //opening the file to put the input inside
 FILE *fp;
 fp=fopen("public_keys.txt","w");
-gmp_fprintf (fp,"n=%Zx\ne=%x\nd=%Zx\n",n,e,d);
+gmp_fprintf (fp,"n=%Zx\ne=%x\nd=%Zx\nphi=%Zx\n",n,e,d,phi_n);
 fclose(fp);
 //
 mpz_clears(n,p,q,phi_n,p1,q1,d,e_n,NULL);
