@@ -155,7 +155,7 @@ int test_miller_rabin(mpz_t n, int t, gmp_randstate_t generator)
    }
    return res;
   }
-//the basic sieve function
+//the optimized sieve function
 void optimized_sieve(mpz_t q, int k, gmp_randstate_t generator, int arr[], int b, int t)
  {
   mpz_t a,z_n[k]; //declaring the variable n
