@@ -165,6 +165,10 @@ void basic_sieve(mpz_t q, int k, gmp_randstate_t generator, int arr[], int b, in
   while(test_miller_rabin(q,t,generator)!=0)
    {
     mpz_add_ui(q,q,2);
+    while(test_with_array(arr,q,k)!=0)
+     {
+     mpz_add_ui(q,q,2);
+     }
    }
    
    mpz_clear(a);
