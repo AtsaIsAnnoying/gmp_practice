@@ -64,21 +64,6 @@ void addingtwo(mpz_t z_n[],mpz_t n, int k, int arr[])
    mpz_add_ui(n,n,2);
  }
 //the miller rabin test 
-//a fast way to calculate res=base^exp mod mod
-void square_and_multiply(mpz_t res, mpz_t base, mpz_t exp, mpz_t mod)
-{
-mpz_set_ui(res,1);
-int k=mpz_sizeinbase(exp,2);
-for(int i=k;i>=0;i--)
-{
- mpz_powm_ui (res, res , 2, mod);
- if (mpz_tstbit (exp,i))
- {
-  mpz_mul (res, res, base);
-  mpz_mod (res, res, mod);
- }
-}
-}
 //writing n-1 as 2^s.r 
 void form(mpz_t n, mpz_t r, mpz_t s)
  {
@@ -113,7 +98,7 @@ int test_miller_rabin_base(mpz_t n, mpz_t a)
   form(n, r, s);//writing n-1 as 2^s.r 
   mpz_sub_ui(n1,n,1);//n1=n-1
   mpz_sub_ui(s1,s,1);//s1=s-1
-  square_and_multiply(y, a, r,n);//y=a^r mod n
+  mpz_powm(y,a,r,n);
   
   //the test 
   if((mpz_cmp_ui(y,1)!=0)&&(mpz_cmp(y,n1)!=0))
